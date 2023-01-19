@@ -7,6 +7,10 @@ import {SafeTransferLib} from "solmate/utils/SafeTransferLib.sol";
 contract StakingContract {
     using SafeTransferLib for ERC20;
 
+    event Stake(address indexed who, uint256 amount);
+    event Withdraw(address indexed who, uint256 amount);
+    event Distribute(address indexed who, uint256 amount);
+
     struct StakingRecord {
         uint256 amount;
         uint256 rewardsPerStakedTokenSnapshot;
@@ -33,6 +37,8 @@ contract StakingContract {
 
         userPosition.amount = _tokens;
         userPosition.rewardsPerStakedTokenSnapshot = rewardsPerStakedToken;
+
+        emit Stake(msg.sender, _tokens);
     }
 
     function withdraw() external {
@@ -47,6 +53,8 @@ contract StakingContract {
         delete stakingRecords[msg.sender];
 
         token.safeTransfer(msg.sender, userRecord.amount + userReward);
+
+        emit Withdraw(msg.sender, userRecord.amount + userReward);
     }
 
     function distribute(uint256 _reward) external {
@@ -55,5 +63,7 @@ contract StakingContract {
         token.safeTransferFrom(msg.sender, address(this), _reward);
 
         rewardsPerStakedToken = rewardsPerStakedToken + (_reward / totalStaked);
+
+        emit Distribute(msg.sender, _reward);
     }
 }
