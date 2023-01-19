@@ -5,6 +5,6 @@ import {ERC20} from "solmate/tokens/ERC20.sol";
 
 contract Token is ERC20 {
     constructor() ERC20("Token", "TKN", 18) {
-        _mint(msg.sender, 1_000_000);
+        _mint(msg.sender, 1_000_000 * 10 ** 18);
     }
 }
