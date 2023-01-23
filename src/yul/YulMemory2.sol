@@ -43,7 +43,7 @@ contract YulMemory2 {
             // store 1, 2, 3 in memory
             mstore(fmp, 1)
             mstore(add(fmp, 0x20), 2)
-            mstore(add(fmp, 0x20), 3)
+            mstore(add(fmp, 0x40), 3)
 
             // update free memory pointer
             mstore(0x40, add(fmp, 0x60)) // increase by 96 bytes
