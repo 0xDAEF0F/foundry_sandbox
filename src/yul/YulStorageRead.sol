@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 // Slot is where the actual variable is (var.slot gives the location)
 // sload(slot)
 // sstore(slot, value)
-contract YulStorage_1 {
+contract YulStorageRead {
     uint256 private a;
     uint256 private x;
 
