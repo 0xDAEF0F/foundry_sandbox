@@ -56,12 +56,12 @@ contract YulStorageArrMappings {
 
     // To read a storage variable from a mapping, you abi encode the key + slot and hash it
     // and that gives you the location in storage of the key you are looking for
-    function getValueNormalMappingInYul(uint256 _idx) external view returns (uint256 _val) {
+    function getValueNormalMappingInYul(uint256 _key) external view returns (uint256 _val) {
         uint256 myMappingSlot;
         assembly {
             myMappingSlot := myMapping.slot
         }
-        bytes32 location = keccak256(abi.encode(_idx, myMappingSlot));
+        bytes32 location = keccak256(abi.encode(_key, myMappingSlot));
         assembly {
             _val := sload(location)
         }
