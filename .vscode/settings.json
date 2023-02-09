@@ -1,11 +1,13 @@
 {
-  "solidity.packageDefaultDependenciesContractsDirectory": "src",
-  "solidity.packageDefaultDependenciesDirectory": "lib",
-  "editor.formatOnSave": true,
-  "[solidity]": {
-    "editor.defaultFormatter": "JuanBlanco.solidity" 
-  },
-  "solidity.formatter": "forge",
-  "solidity.compileUsingRemoteVersion": "v0.8.17"
-}
-
+    "editor.formatOnSave": true,
+    "[solidity]": {
+        "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+    },
+    "solidity.formatter": "forge",
+    "solidity-va.parser.parseImports": true,
+    "solidity-va.codelens.ftrace.enable": false,
+    "solidity-va.codelens.funcSigs.enable": false,
+    "solidity-va.codelens.drawio.enable": false,
+    "solidity-va.uml.actors.enable": false,
+  }
+  

@@ -4,4 +4,7 @@ solc = '0.8.17'
 out = 'out'
 libs = ['lib']
 
+[default.optimizer_details]
+yul = false
+
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
